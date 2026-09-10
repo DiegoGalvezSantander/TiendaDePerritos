@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - TiendaDeMascotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-contenido">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-icono">🐾</span>
+                <div>
+                    <h1>TiendaDeMascotas</h1>
+                    <span class="logo-subtitulo">Todo para ellos</span>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-lista">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="productos.html" class="nav-link">Productos</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="Noticias.html" class="nav-link">Noticias</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-header">
+            <a href="IniciarSesion.html" class="accion-header">👤 Iniciar sesión</a>
+            <a href="Registro.html" class="accion-header">Registrarse</a>
+            <a href="carrito.html" class="carrito-header">
+                🛒 Carrito <span class="carrito-contador">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main style="max-width:1250px;margin:40px auto;padding:0 20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;margin-bottom:20px;">
+        <h1 style="color:var(--verde-oscuro);margin:0;">Panel de Administración</h1>
+        <div style="background:white;padding:10px 15px;border-radius:10px;border:1px solid var(--borde);">
+            <label style="font-weight:700;margin-right:10px;">👤 Rol activo:</label>
+            <select id="rol-selector" onchange="cambiarRol(this.value)" style="padding:8px;border-radius:8px;border:1px solid var(--borde);font-weight:600;">
+                <option value="Administrador" selected>Administrador</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Cliente">Cliente</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="admin-layout">
+        <div class="admin-sidebar">
+            <h3>Menú</h3>
+            <a href="#" onclick="mostrarTab('productos')" class="menu-admin" data-rol="Administrador,Vendedor">📦 Productos</a>
+            <a href="#" onclick="mostrarTab('usuarios')" class="menu-admin" data-rol="Administrador">👤 Usuarios</a>
+            <a href="#" onclick="mostrarTab('ordenes')" class="menu-admin" data-rol="Administrador,Vendedor">📋 Órdenes</a>
+            <a href="index.html" style="color:var(--verde);">← Volver a tienda</a>
+        </div>
+        <div class="admin-content">
+            <div class="admin-tabs">
+                <button id="tab-btn-productos" class="activo" onclick="mostrarTab('productos')">Productos</button>
+                <button id="tab-btn-usuarios" onclick="mostrarTab('usuarios')">Usuarios</button>
+                <button id="tab-btn-ordenes" onclick="mostrarTab('ordenes')">Órdenes</button>
+            </div>
+
+            <div id="tab-productos" class="tab-content activo">
+                <h3 id="titulo-producto">Gestión de Productos</h3>
+                <form id="admin-producto-form">
+                    <input type="hidden" id="prod-id-editar" value="">
+                    <div class="admin-form-group">
+                        <label>Código * (mín 3 caracteres)</label>
+                        <input type="text" id="prod-codigo" placeholder="PROD001">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Nombre * (máx 100)</label>
+                        <input type="text" id="prod-nombre" placeholder="Nombre del producto">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Descripción (máx 500)</label>
+                        <textarea id="prod-descripcion" rows="2"></textarea>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Precio * (mín 0)</label>
+                        <input type="number" id="prod-precio" step="0.01" min="0">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Stock * (entero, mín 0)</label>
+                        <input type="number" id="prod-stock" step="1" min="0">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Stock Crítico (opcional)</label>
+                        <input type="number" id="prod-stock-critico" step="1" min="0">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Categoría *</label>
+                        <select id="prod-categoria">
+                            <option value="Alimento Seco">Alimento Seco</option>
+                            <option value="Alimento Húmedo">Alimento Húmedo</option>
+                            <option value="Juguetes">Juguetes</option>
+                            <option value="Rascadores y Gimnasios">Rascadores y Gimnasios</option>
+                            <option value="Correas, Collares y Arneses">Correas, Collares y Arneses</option>
+                        </select>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Imagen (opcional - URL o ruta)</label>
+                        <input type="text" id="prod-imagen" placeholder="https://ejemplo.com/imagen.png">
+                    </div>
+                    <button type="submit" class="boton boton-principal" id="btn-guardar-producto">Guardar Producto</button>
+                    <button type="button" class="boton boton-secundario" id="btn-cancelar-edicion" onclick="cancelarEdicion()" style="display:none;">Cancelar edición</button>
+                </form>
+                <hr style="margin:20px 0;">
+                <p><strong>Lista actual de productos:</strong></p>
+                <ul id="lista-productos-simulada"></ul>
+            </div>
+
+            <div id="tab-usuarios" class="tab-content">
+                <h3>Gestión de Usuarios</h3>
+                <form id="admin-usuario-form">
+                    <div class="admin-form-group">
+                        <label>RUT * (7-9 dígitos, sin puntos ni guión)</label>
+                        <input type="text" id="user-rut" placeholder="19011022K">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Nombre * (máx 50)</label>
+                        <input type="text" id="user-nombre">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Apellidos * (máx 100)</label>
+                        <input type="text" id="user-apellidos">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Correo *</label>
+                        <input type="email" id="user-email">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Fecha Nacimiento (opcional)</label>
+                        <input type="date" id="user-fecha">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Tipo de Usuario *</label>
+                        <select id="user-tipo">
+                            <option value="Administrador">Administrador</option>
+                            <option value="Vendedor">Vendedor</option>
+                            <option value="Cliente" selected>Cliente</option>
+                        </select>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Región *</label>
+                        <select id="user-region"></select>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Comuna *</label>
+                        <select id="user-comuna"></select>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Dirección * (máx 300)</label>
+                        <input type="text" id="user-direccion">
+                    </div>
+                    <button type="submit" class="boton boton-principal">Guardar Usuario</button>
+                </form>
+                <hr style="margin:20px 0;">
+                <p><strong>Lista de usuarios:</strong></p>
+                <ul id="lista-usuarios-simulada"></ul>
+            </div>
+
+            <div id="tab-ordenes" class="tab-content">
+                <h3>📋 Lista de Órdenes</h3>
+                <div id="lista-ordenes">
+                    <p style="color:#777;">No hay órdenes registradas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h3>🐾 TiendaDeMascotas</h3>
+            <p style="color:#bec6bf;">Todo lo que necesitan, en un solo lugar.</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Comprar</h3>
+            <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Información</h3>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="Noticias.html">Noticias</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Cuenta</h3>
+            <a href="IniciarSesion.html">Iniciar sesión</a>
+            <a href="Registro.html">Registrarse</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TiendaDeMascotas. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    function mostrarTab(tab) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('activo'));
+        document.querySelectorAll('.admin-tabs button').forEach(el => el.classList.remove('activo'));
+        document.getElementById('tab-' + tab).classList.add('activo');
+        document.getElementById('tab-btn-' + tab).classList.add('activo');
+    }
+</script>
+<script src="js/javaScript.js"></script>
+</body>
+</html>
