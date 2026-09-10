@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - TiendaDeMascotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-contenido">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-icono">🐾</span>
+                <div>
+                    <h1>TiendaDeMascotas</h1>
+                    <span class="logo-subtitulo">Todo para ellos</span>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-lista">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="productos.html" class="nav-link">Productos</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link activo">Contacto</a></li>
+                <li><a href="Noticias.html" class="nav-link">Noticias</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-header">
+            <a href="IniciarSesion.html" class="accion-header">👤 Iniciar sesión</a>
+            <a href="Registro.html" class="accion-header">Registrarse</a>
+            <a href="carrito.html" class="carrito-header">
+                🛒 Carrito <span class="carrito-contador">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div style="max-width:800px;margin:auto;">
+        <h2 style="text-align:center;color:var(--verde-oscuro);">📩 Contáctanos</h2>
+        <p style="text-align:center;color:#777;margin-bottom:30px;">¿Tienes preguntas? Escríbenos y te responderemos pronto.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;background:white;padding:30px;border-radius:16px;border:1px solid var(--borde);">
+            <div>
+                <h3 style="color:var(--verde-oscuro);">Información</h3>
+                <p><strong>📞 Teléfono:</strong> +569 9999 9999</p>
+                <p><strong>📧 Email:</strong> TiendaMascotas@gmail.com</p>
+                <p><strong>💬 WhatsApp:</strong> +569 9191 1919</p>
+                <p style="margin-top:20px;color:#777;">¡Estamos para ayudarte!</p>
+            </div>
+            <div>
+                <form id="contacto-form">
+                    <div style="margin-bottom:15px;">
+                        <label style="font-weight:600;">Nombre *</label>
+                        <input type="text" id="contact-nombre" placeholder="Tu nombre" style="width:100%;padding:10px;border:1px solid var(--borde);border-radius:8px;">
+                    </div>
+                    <div style="margin-bottom:15px;">
+                        <label style="font-weight:600;">Email *</label>
+                        <input type="email" id="contact-email" placeholder="ejemplo@duoc.cl" style="width:100%;padding:10px;border:1px solid var(--borde);border-radius:8px;">
+                    </div>
+                    <div style="margin-bottom:15px;">
+                        <label style="font-weight:600;">Comentario *</label>
+                        <textarea id="contact-comentario" rows="4" placeholder="Escribe tu mensaje..." style="width:100%;padding:10px;border:1px solid var(--borde);border-radius:8px;"></textarea>
+                    </div>
+                    <button type="submit" class="boton boton-principal" style="width:100%;">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h3>🐾 TiendaDeMascotas</h3>
+            <p style="color:#bec6bf;">Todo lo que necesitan, en un solo lugar.</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Comprar</h3>
+            <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Información</h3>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="Noticias.html">Noticias</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Cuenta</h3>
+            <a href="IniciarSesion.html">Iniciar sesión</a>
+            <a href="Registro.html">Registrarse</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TiendaDeMascotas. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="js/javaScript.js"></script>
+</body>
+</html>
