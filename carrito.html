@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito - TiendaDeMascotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-contenido">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-icono">🐾</span>
+                <div>
+                    <h1>TiendaDeMascotas</h1>
+                    <span class="logo-subtitulo">Todo para ellos</span>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-lista">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="productos.html" class="nav-link">Productos</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="Noticias.html" class="nav-link">Noticias</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-header">
+            <a href="IniciarSesion.html" class="accion-header">👤 Iniciar sesión</a>
+            <a href="Registro.html" class="accion-header">Registrarse</a>
+            <a href="carrito.html" class="carrito-header">
+                🛒 Carrito <span class="carrito-contador" id="contador-header">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <h2 style="text-align:center;color:#334b36;">🛒 Mi Carrito</h2>
+    <div id="carrito-lista" style="max-width:700px;margin:auto;"></div>
+    <div id="total-carrito" style="max-width:700px;margin:20px auto;text-align:right;font-size:22px;font-weight:700;background:white;padding:15px 20px;border-radius:12px;border:1px solid #ddd;">
+        Total: $<span id="total-monto">0</span>
+    </div>
+    <div style="max-width:700px;margin:auto;text-align:center;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+        <a href="productos.html" class="boton boton-secundario">← Seguir comprando</a>
+        <button class="boton boton-principal" onclick="finalizarCompra()">✅ Finalizar Compra</button>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h3>🐾 TiendaDeMascotas</h3>
+            <p style="color:#bec6bf;">Todo lo que necesitan, en un solo lugar.</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Comprar</h3>
+            <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Información</h3>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="Noticias.html">Noticias</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Cuenta</h3>
+            <a href="IniciarSesion.html">Iniciar sesión</a>
+            <a href="Registro.html">Registrarse</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TiendaDeMascotas. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="js/javaScript.js"></script>
+</body>
+</html>
