@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TiendaDeMascotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-contenido">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-icono">🐾</span>
+                <div>
+                    <h1>TiendaDeMascotas</h1>
+                    <span class="logo-subtitulo">Todo para ellos</span>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-lista">
+                <li><a href="index.html" class="nav-link activo">Inicio</a></li>
+                <li><a href="productos.html" class="nav-link">Productos</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="Noticias.html" class="nav-link">Noticias</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-header">
+            <a href="IniciarSesion.html" class="accion-header">👤 Iniciar sesión</a>
+            <a href="Registro.html" class="accion-header">Registrarse</a>
+            <a href="carrito.html" class="carrito-header">
+                🛒 Carrito <span class="carrito-contador">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-contenido">
+            <div class="hero-texto">
+                <h2>Porque ellos también <span>merecen lo mejor</span></h2>
+                <p>Encuentra alimento, juguetes y accesorios para cuidar y consentir a tus compañeros.</p>
+                <a href="productos.html" class="boton boton-principal">Ver productos</a>
+            </div>
+            <div class="hero-imagen">
+                <img src="IMG/PerroYgato.jpg" alt="Perro y gato">
+            </div>
+        </div>
+    </section>
+
+    <section style="max-width:800px;margin:50px auto;text-align:center;background:white;padding:30px;border-radius:16px;border:1px solid var(--borde);">
+        <h3 style="color:var(--verde-oscuro);">🎥 Conoce nuestra tienda</h3>
+        <p style="color:#777;margin-bottom:15px;">Descubre cómo cuidamos a tus mascotas.</p>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">
+            <iframe 
+                style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                src="https://www.youtube.com/embed/5aPx_wx9Z8g" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p style="color:#888;font-size:12px;margin-top:10px;">🎬 Video promocional de TiendaDeMascotas</p>
+    </section>
+
+    <section style="margin-top:50px;">
+        <h2 style="text-align:center;color:var(--verde-oscuro);">Productos destacados</h2>
+        <div class="productos-grid" id="productos-destacados"></div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h3>🐾 TiendaDeMascotas</h3>
+            <p style="color:#bec6bf;">Todo lo que necesitan, en un solo lugar.</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Comprar</h3>
+            <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Información</h3>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="Noticias.html">Noticias</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Cuenta</h3>
+            <a href="IniciarSesion.html">Iniciar sesión</a>
+            <a href="Registro.html">Registrarse</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TiendaDeMascotas. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="js/javaScript.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contenedor = document.getElementById('productos-destacados');
+        if (contenedor && typeof productos !== 'undefined') {
+            const destacados = productos.slice(0, 2);
+            contenedor.innerHTML = destacados.map(p => `
+                <div class="producto">
+                    <img src="${p.imagen}" alt="${p.nombre}">
+                    <h3>${p.nombre}</h3>
+                    <p class="precio">$${p.precio.toLocaleString()}</p>
+                    <button class="boton-agregar" onclick="agregarAlCarrito(${p.id})">🛒 Añadir</button>
+                </div>
+            `).join('');
+        }
+    });
+</script>
+</body>
+</html>
