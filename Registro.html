@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - TiendaDeMascotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-contenido">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-icono">🐾</span>
+                <div>
+                    <h1>TiendaDeMascotas</h1>
+                    <span class="logo-subtitulo">Todo para ellos</span>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-lista">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="productos.html" class="nav-link">Productos</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="Noticias.html" class="nav-link">Noticias</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-header">
+            <a href="IniciarSesion.html" class="accion-header">👤 Iniciar sesión</a>
+            <a href="Registro.html" class="accion-header">Registrarse</a>
+            <a href="carrito.html" class="carrito-header">
+                🛒 Carrito <span class="carrito-contador">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="formulario" style="max-width:600px;">
+        <h2>📝 Crear cuenta</h2>
+        <form id="registro-form">
+            <label for="reg-rut">RUT * (7-9 dígitos, sin puntos ni guión)</label>
+            <input type="text" id="reg-rut" placeholder="19011022K" required>
+            <small>Solo números y K</small>
+
+            <label for="reg-nombre">Nombre * (máx 50)</label>
+            <input type="text" id="reg-nombre" placeholder="Tu nombre" required>
+            <small>Máximo 50 caracteres</small>
+
+            <label for="reg-apellidos">Apellidos * (máx 100)</label>
+            <input type="text" id="reg-apellidos" placeholder="Tus apellidos" required>
+            <small>Máximo 100 caracteres</small>
+
+            <label for="reg-email">Email * (solo dominios permitidos)</label>
+            <input type="email" id="reg-email" placeholder="ejemplo@duoc.cl" required>
+            <small>@duoc.cl, @profesor.duoc.cl, @gmail.com (máx 100)</small>
+
+            <label for="reg-pass">Contraseña * (4 a 10 caracteres)</label>
+            <input type="password" id="reg-pass" placeholder="••••••••" required>
+            <small>Entre 4 y 10 caracteres</small>
+
+            <label for="reg-fecha">Fecha Nacimiento (opcional)</label>
+            <input type="date" id="reg-fecha">
+
+            <label for="reg-region">Región *</label>
+            <select id="reg-region" required>
+                <option value="">Selecciona una región</option>
+            </select>
+
+            <label for="reg-comuna">Comuna *</label>
+            <select id="reg-comuna" required>
+                <option value="">Selecciona una comuna</option>
+            </select>
+
+            <label for="reg-direccion">Dirección * (máx 300)</label>
+            <input type="text" id="reg-direccion" placeholder="Calle Falsa 123" required>
+
+            <button type="submit" class="boton boton-principal">Registrarse</button>
+        </form>
+        <div class="enlace">
+            ¿Ya tienes cuenta? <a href="IniciarSesion.html">Inicia sesión</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h3>🐾 TiendaDeMascotas</h3>
+            <p style="color:#bec6bf;">Todo lo que necesitan, en un solo lugar.</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Comprar</h3>
+            <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Información</h3>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="Noticias.html">Noticias</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Cuenta</h3>
+            <a href="IniciarSesion.html">Iniciar sesión</a>
+            <a href="Registro.html">Registrarse</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TiendaDeMascotas. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="js/javaScript.js"></script>
+</body>
+</html>
