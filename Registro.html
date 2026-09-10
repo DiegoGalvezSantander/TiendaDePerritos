@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - TiendaDeMascotas</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -42,23 +43,23 @@
         <h2>📝 Crear cuenta</h2>
         <form id="registro-form">
             <label for="reg-rut">RUT * (7-9 dígitos, sin puntos ni guión)</label>
-            <input type="text" id="reg-rut" placeholder="19011022K" required>
+            <input type="text" id="reg-rut" maxlength="9" placeholder="19011022K" required>
             <small>Solo números y K</small>
 
             <label for="reg-nombre">Nombre * (máx 50)</label>
-            <input type="text" id="reg-nombre" placeholder="Tu nombre" required>
+            <input type="text" id="reg-nombre" maxlength="50" placeholder="Tu nombre" required>
             <small>Máximo 50 caracteres</small>
 
             <label for="reg-apellidos">Apellidos * (máx 100)</label>
-            <input type="text" id="reg-apellidos" placeholder="Tus apellidos" required>
+            <input type="text" id="reg-apellidos" maxlength="100" placeholder="Tus apellidos" required>
             <small>Máximo 100 caracteres</small>
 
             <label for="reg-email">Email * (solo dominios permitidos)</label>
-            <input type="email" id="reg-email" placeholder="ejemplo@duoc.cl" required>
+            <input type="email" id="reg-email" maxlength="100" placeholder="ejemplo@duoc.cl" required>
             <small>@duoc.cl, @profesor.duoc.cl, @gmail.com (máx 100)</small>
 
             <label for="reg-pass">Contraseña * (4 a 10 caracteres)</label>
-            <input type="password" id="reg-pass" placeholder="••••••••" required>
+            <input type="password" id="reg-pass" maxlength="10" placeholder="••••••••" required>
             <small>Entre 4 y 10 caracteres</small>
 
             <label for="reg-fecha">Fecha Nacimiento (opcional)</label>
@@ -75,7 +76,7 @@
             </select>
 
             <label for="reg-direccion">Dirección * (máx 300)</label>
-            <input type="text" id="reg-direccion" placeholder="Calle Falsa 123" required>
+            <input type="text" id="reg-direccion" maxlength="300" placeholder="Calle Falsa 123" required>
 
             <button type="submit" class="boton boton-principal">Registrarse</button>
         </form>

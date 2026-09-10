@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - TiendaDeMascotas</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -42,11 +43,11 @@
         <h2>🔐 Iniciar Sesión</h2>
         <form id="login-form">
             <label for="login-email">Email <span class="requerido">*</span></label>
-            <input type="email" id="login-email" placeholder="ejemplo@duoc.cl" required>
+            <input type="email" id="login-email" maxlength="100" placeholder="ejemplo@duoc.cl" required>
             <small>Solo @duoc.cl, @profesor.duoc.cl o @gmail.com</small>
 
             <label for="login-pass">Contraseña <span class="requerido">*</span></label>
-            <input type="password" id="login-pass" placeholder="••••••••" required>
+            <input type="password" id="login-pass" maxlength="10" placeholder="••••••••" required>
             <small>Entre 4 y 10 caracteres</small>
 
             <button type="submit" class="boton boton-principal">Ingresar</button>

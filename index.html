@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TiendaDeMascotas</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -101,21 +102,5 @@
 </footer>
 
 <script src="js/javaScript.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const contenedor = document.getElementById('productos-destacados');
-        if (contenedor && typeof productos !== 'undefined') {
-            const destacados = productos.slice(0, 2);
-            contenedor.innerHTML = destacados.map(p => `
-                <div class="producto">
-                    <img src="${p.imagen}" alt="${p.nombre}">
-                    <h3>${p.nombre}</h3>
-                    <p class="precio">$${p.precio.toLocaleString()}</p>
-                    <button class="boton-agregar" onclick="agregarAlCarrito(${p.id})">🛒 Añadir</button>
-                </div>
-            `).join('');
-        }
-    });
-</script>
 </body>
 </html>

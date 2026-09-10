@@ -29,8 +29,6 @@
             </ul>
         </nav>
         <div class="acciones-header">
-            <a href="IniciarSesion.html" class="accion-header">👤 Iniciar sesión</a>
-            <a href="Registro.html" class="accion-header">Registrarse</a>
             <a href="carrito.html" class="carrito-header">
                 🛒 Carrito <span class="carrito-contador">0</span>
             </a>
@@ -41,24 +39,24 @@
 <main style="max-width:1250px;margin:40px auto;padding:0 20px;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;margin-bottom:20px;">
         <h1 style="color:var(--verde-oscuro);margin:0;">Panel de Administración</h1>
-        <div style="background:white;padding:10px 15px;border-radius:10px;border:1px solid var(--borde);">
-            <label style="font-weight:700;margin-right:10px;">👤 Rol activo:</label>
-            <select id="rol-selector" onchange="cambiarRol(this.value)" style="padding:8px;border-radius:8px;border:1px solid var(--borde);font-weight:600;">
+        <div style="display:flex;align-items:center;gap:10px;background:white;padding:10px 15px;border-radius:10px;border:1px solid var(--borde);">
+            <label for="rol-selector" style="font-weight:700;">👤 Rol activo:</label>
+            <select id="rol-selector" style="padding:8px;border-radius:8px;border:1px solid var(--borde);font-weight:600;">
                 <option value="Administrador" selected>Administrador</option>
                 <option value="Vendedor">Vendedor</option>
-                <option value="Cliente">Cliente</option>
             </select>
+            <button onclick="cerrarSesion()" class="boton boton-secundario" style="padding:8px 14px;">🚪 Cerrar sesión</button>
         </div>
     </div>
 
     <div class="admin-layout">
-        <div class="admin-sidebar">
+        <aside class="admin-sidebar">
             <h3>Menú</h3>
             <a href="#" onclick="mostrarTab('productos')" class="menu-admin" data-rol="Administrador,Vendedor">📦 Productos</a>
             <a href="#" onclick="mostrarTab('usuarios')" class="menu-admin" data-rol="Administrador">👤 Usuarios</a>
             <a href="#" onclick="mostrarTab('ordenes')" class="menu-admin" data-rol="Administrador,Vendedor">📋 Órdenes</a>
             <a href="index.html" style="color:var(--verde);">← Volver a tienda</a>
-        </div>
+        </aside>
         <div class="admin-content">
             <div class="admin-tabs">
                 <button id="tab-btn-productos" class="activo" onclick="mostrarTab('productos')">Productos</button>
@@ -71,31 +69,31 @@
                 <form id="admin-producto-form">
                     <input type="hidden" id="prod-id-editar" value="">
                     <div class="admin-form-group">
-                        <label>Código * (mín 3 caracteres)</label>
-                        <input type="text" id="prod-codigo" placeholder="PROD001">
+                        <label for="prod-codigo">Código * (mín 3 caracteres)</label>
+                        <input type="text" id="prod-codigo" maxlength="20" placeholder="PROD001">
                     </div>
                     <div class="admin-form-group">
-                        <label>Nombre * (máx 100)</label>
-                        <input type="text" id="prod-nombre" placeholder="Nombre del producto">
+                        <label for="prod-nombre">Nombre * (máx 100)</label>
+                        <input type="text" id="prod-nombre" maxlength="100" placeholder="Nombre del producto">
                     </div>
                     <div class="admin-form-group">
-                        <label>Descripción (máx 500)</label>
-                        <textarea id="prod-descripcion" rows="2"></textarea>
+                        <label for="prod-descripcion">Descripción (máx 500)</label>
+                        <textarea id="prod-descripcion" rows="2" maxlength="500"></textarea>
                     </div>
                     <div class="admin-form-group">
-                        <label>Precio * (mín 0)</label>
+                        <label for="prod-precio">Precio * (mín 0)</label>
                         <input type="number" id="prod-precio" step="0.01" min="0">
                     </div>
                     <div class="admin-form-group">
-                        <label>Stock * (entero, mín 0)</label>
+                        <label for="prod-stock">Stock * (entero, mín 0)</label>
                         <input type="number" id="prod-stock" step="1" min="0">
                     </div>
                     <div class="admin-form-group">
-                        <label>Stock Crítico (opcional)</label>
+                        <label for="prod-stock-critico">Stock Crítico (opcional)</label>
                         <input type="number" id="prod-stock-critico" step="1" min="0">
                     </div>
                     <div class="admin-form-group">
-                        <label>Categoría *</label>
+                        <label for="prod-categoria">Categoría *</label>
                         <select id="prod-categoria">
                             <option value="Alimento Seco">Alimento Seco</option>
                             <option value="Alimento Húmedo">Alimento Húmedo</option>
@@ -105,7 +103,7 @@
                         </select>
                     </div>
                     <div class="admin-form-group">
-                        <label>Imagen (opcional - URL o ruta)</label>
+                        <label for="prod-imagen">Imagen (opcional - URL o ruta)</label>
                         <input type="text" id="prod-imagen" placeholder="https://ejemplo.com/imagen.png">
                     </div>
                     <button type="submit" class="boton boton-principal" id="btn-guardar-producto">Guardar Producto</button>
@@ -119,28 +117,29 @@
             <div id="tab-usuarios" class="tab-content">
                 <h3>Gestión de Usuarios</h3>
                 <form id="admin-usuario-form">
+                    <input type="hidden" id="user-id-editar" value="">
                     <div class="admin-form-group">
-                        <label>RUT * (7-9 dígitos, sin puntos ni guión)</label>
-                        <input type="text" id="user-rut" placeholder="19011022K">
+                        <label for="user-rut">RUT * (7-9 dígitos, sin puntos ni guión)</label>
+                        <input type="text" id="user-rut" maxlength="9" placeholder="19011022K">
                     </div>
                     <div class="admin-form-group">
-                        <label>Nombre * (máx 50)</label>
-                        <input type="text" id="user-nombre">
+                        <label for="user-nombre">Nombre * (máx 50)</label>
+                        <input type="text" id="user-nombre" maxlength="50">
                     </div>
                     <div class="admin-form-group">
-                        <label>Apellidos * (máx 100)</label>
-                        <input type="text" id="user-apellidos">
+                        <label for="user-apellidos">Apellidos * (máx 100)</label>
+                        <input type="text" id="user-apellidos" maxlength="100">
                     </div>
                     <div class="admin-form-group">
-                        <label>Correo *</label>
-                        <input type="email" id="user-email">
+                        <label for="user-email">Correo * (máx 100)</label>
+                        <input type="email" id="user-email" maxlength="100">
                     </div>
                     <div class="admin-form-group">
-                        <label>Fecha Nacimiento (opcional)</label>
+                        <label for="user-fecha">Fecha Nacimiento (opcional)</label>
                         <input type="date" id="user-fecha">
                     </div>
                     <div class="admin-form-group">
-                        <label>Tipo de Usuario *</label>
+                        <label for="user-tipo">Tipo de Usuario *</label>
                         <select id="user-tipo">
                             <option value="Administrador">Administrador</option>
                             <option value="Vendedor">Vendedor</option>
@@ -148,16 +147,16 @@
                         </select>
                     </div>
                     <div class="admin-form-group">
-                        <label>Región *</label>
+                        <label for="user-region">Región *</label>
                         <select id="user-region"></select>
                     </div>
                     <div class="admin-form-group">
-                        <label>Comuna *</label>
+                        <label for="user-comuna">Comuna *</label>
                         <select id="user-comuna"></select>
                     </div>
                     <div class="admin-form-group">
-                        <label>Dirección * (máx 300)</label>
-                        <input type="text" id="user-direccion">
+                        <label for="user-direccion">Dirección * (máx 300)</label>
+                        <input type="text" id="user-direccion" maxlength="300">
                     </div>
                     <button type="submit" class="boton boton-principal">Guardar Usuario</button>
                 </form>

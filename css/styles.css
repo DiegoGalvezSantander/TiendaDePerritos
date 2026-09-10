@@ -913,6 +913,31 @@ button {
     color: var(--verde-oscuro);
 }
 
+article.articulo {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--borde);
+    box-shadow: var(--sombra);
+}
+
+aside.admin-sidebar {
+    min-width: 200px;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--borde);
+}
+
+.error-inline {
+    color: #c0392b;
+    font-size: 12px;
+    display: block;
+    margin-top: 4px;
+}
+
 @media (max-width: 1150px) {
     .header-contenido {
         padding: 0 20px;
