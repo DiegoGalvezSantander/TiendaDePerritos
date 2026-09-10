@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnés para Gato - TiendaDeMascotas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-contenido">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-icono">🐾</span>
+                <div>
+                    <h1>TiendaDeMascotas</h1>
+                    <span class="logo-subtitulo">Todo para ellos</span>
+                </div>
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-lista">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="productos.html" class="nav-link">Productos</a></li>
+                <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="Noticias.html" class="nav-link">Noticias</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-header">
+            <a href="IniciarSesion.html" class="accion-header">👤 Iniciar sesión</a>
+            <a href="Registro.html" class="accion-header">Registrarse</a>
+            <a href="carrito.html" class="carrito-header">
+                🛒 Carrito <span class="carrito-contador">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="detalle">
+        <img src="IMG/ProductosGato/ArnesAjustableGato.png" alt="Arnés para Gato" class="imagen">
+        <span class="categoria">🦮 Correas, Collares y Arneses</span>
+        <h1>Arnés Ajustable Para Gatos</h1>
+        <p class="precio">$9.990</p>
+        <p class="stock">📦 Stock disponible: 10 unidades</p>
+        <p class="descripcion">
+            Cómodo, resistente y ajustable para paseos seguros. 
+            Fabricado con materiales suaves que no lastiman a tu gato. 
+            Incluye correa de seguridad y ajuste rápido.
+        </p>
+        <button class="boton-agregar" onclick="agregarAlCarrito(3)">🛒 Añadir al carrito</button>
+        <div class="botones">
+            <a href="productos.html" class="boton boton-secundario">← Volver a productos</a>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h3>🐾 TiendaDeMascotas</h3>
+            <p style="color:#bec6bf;">Todo lo que necesitan, en un solo lugar.</p>
+        </div>
+        <div class="footer-columna">
+            <h3>Comprar</h3>
+            <a href="productos.html">Productos</a>
+            <a href="carrito.html">Carrito</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Información</h3>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="Noticias.html">Noticias</a>
+        </div>
+        <div class="footer-columna">
+            <h3>Cuenta</h3>
+            <a href="IniciarSesion.html">Iniciar sesión</a>
+            <a href="Registro.html">Registrarse</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 TiendaDeMascotas. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="js/javaScript.js"></script>
+</body>
+</html>
